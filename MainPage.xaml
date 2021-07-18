@@ -1,0 +1,36 @@
+﻿<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:local="clr-namespace:TabbedPageWithNavigationPage;assembly=TabbedPageWithNavigationPage"
+            x:Class="myPersonalDict.MainPage">
+    <ContentPage Title="Search">
+        <StackLayout Margin="10">
+            <Editor x:Name="editorFilter" Placeholder="...search" HeightRequest="100"/>
+            <Button x:Name="btnSearch" Text="go" Clicked="btnSearch_Clicked"></Button>
+            <Button x:Name="btnSearchAll" Text="go for all" Clicked="btnSearchAll_Clicked"></Button>
+            <ListView x:Name="TranslationList" SeparatorColor="AliceBlue">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell Height="50">
+                            <StackLayout Padding="0" Spacing="0">
+                                <Label Text="{Binding German}" />
+                                <Label Text="{Binding Spanish}" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage>
+    <ContentPage Title="Create">
+        <StackLayout Margin="10">
+            <Editor x:Name="editorGerman" Placeholder="...German Sentence" HeightRequest="100"/>
+            <Editor x:Name="editorSpanish" Placeholder="...Spanish Sentence" HeightRequest="100"/>
+            <Button x:Name="btnAddSentence" Text="+" Clicked="btnAddSentence_Clicked"/>
+            <Label x:Name="labelStatus"/>
+            <Button x:Name="btnClear" Text="OK, next one" Clicked="btnClear_Clicked" IsVisible="false"/>
+        </StackLayout>
+    </ContentPage>
+    <ContentPage Title="Gallery">
+        <Label Text="Add Pictures with Description. Can be helpful for local Food or something..." Margin="5,5,5,5"/>
+    </ContentPage>
+</TabbedPage>
